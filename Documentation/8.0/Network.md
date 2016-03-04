@@ -16,65 +16,65 @@ We talked to IT and was given a router which was configured with minimal filteri
 * Table: `==devices==`
 
 ###Logical
-`          __________________
-          {_Rest_of_internet_}
-                  |
-              ____|_____
-             {_MSBSD_WAN_}
-                  |
-              ____|_____
-             {_CTHS_LAN_}
-                  |
-             _____|_______
-            (_IT-provided_)
-                  |
-          ________|__________
-         [_______Core________]
-        /    |         |      \
-       /     |         |       \
-[Access0] [Access1] [Access2] [Access3] ... etc.
- | | | |   | | | |   | | | |   | | | |
- @ @ @ @   @ @ @ @   @ @ @ @   @ @ @ @ ... etc.
-`
+               __________________
+              {_Rest_of_internet_}
+                      |
+                  ____|_____
+                 {_MSBSD_WAN_}
+                      |
+                  ____|_____
+                 {_CTHS_LAN_}
+                      |
+                 _____|_______
+                (_IT-provided_)
+                      |
+              ________|__________
+             [_______Core________]
+            /    |         |      \
+           /     |         |       \
+    [Access0] [Access1] [Access2] [Access3] ... etc.
+     | | | |   | | | |   | | | |   | | | |
+     @ @ @ @   @ @ @ @   @ @ @ @   @ @ @ @ ... etc.
+     
 ###Physical
 IDF:
-`
- _______________________
-[_CTHS_access_Enterasys_]
-           |
-     ______|______
-    (_IT-provided_)
-           |
-        ___|__
-       [_Core_]
-        ||||||
-       [######]
-`
+
+     _______________________
+    [_CTHS_access_Enterasys_]
+               |
+         ______|______
+        (_IT-provided_)
+               |
+            ___|__
+           [_Core_]
+            ||||||
+           [######]
+
 Commons:
-`
- ==@@[A0]@@==    ==@@[A1]@@== 
-       |              |
-       #              #
-       |              |
- ==@@[A2]@@==    ==@@[A3]@@== 
 
- ==@@[A4]@@==    ==@@[A5]@@== 
-       |              |
-       #              #
-       |              |
- ==@@[A6]@@==    ==@@[A7]@@== 
+     ==@@[A0]@@==    ==@@[A1]@@== 
+           |              |
+           #              #
+           |              |
+     ==@@[A2]@@==    ==@@[A3]@@== 
 
- ==@@[A8]@@==    ==@@[A9]@@== 
-       |              |
-       #              #
-       |              |
- ==@@[A10]@@==   ==@@[A11]@@== 
-`
+     ==@@[A4]@@==    ==@@[A5]@@== 
+           |              |
+           #              #
+           |              |
+     ==@@[A6]@@==    ==@@[A7]@@== 
+
+     ==@@[A8]@@==    ==@@[A9]@@== 
+           |              |
+           #              #
+           |              |
+     ==@@[A10]@@==   ==@@[A11]@@== 
 
 ##Switch configuration
 I don't have the complete config files lying around anywhere, but here are the most important settings.
 ###Core
 * Ports 0-23: Default config, NO portfast.
+
 ###Access
 * Port 0: Default config, NO portfast. Connects to floor drops.
 * Port 1-23: Default config, but enable portfast. Connects to PCs and consoles.
